@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleepy and Mood</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Content for Sleepy and Mood Page -->
+    <div class="container mt-4">
+        <h1 class="text-center">Sleepy and Mood</h1>
+
+        <!-- Mood Selector -->
+        <div class="form-group">
+            <label for="moodSelect">Select Your Mood:</label>
+            <select class="form-control" id="moodSelect">
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="angry">Angry</option>
+                <option value="calm">Calm</option>
+            </select>
+        </div>
+
+        <!-- Sleepy Selector -->
+        <div class="form-group">
+            <label for="sleepySelect">Select Your Sleepiness:</label>
+            <select class="form-control" id="sleepySelect">
+                <option value="awake">Awake</option>
+                <option value="tired">Tired</option>
+                <option value="exhausted">Exhausted</option>
+            </select>
+        </div>
+
+        <!-- Result Display -->
+        <div id="result" class="text-center mt-4">
+            <h3>Your mood is: <span id="selectedMood">Happy</span></h3>
+            <h3>Your sleepiness level is: <span id="selectedSleepiness">Awake</span></h3>
+            <button id="calculateButton">Calculate Duration</button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Functionality -->
+    <script>
+        const moodSelect = document.getElementById('moodSelect');
+        const sleepySelect = document.getElementById('sleepySelect');
+        const selectedMood = document.getElementById('selectedMood');
+        const selectedSleepiness = document.getElementById('selectedSleepiness');
+
+        let moodStartTime;
+        let sleepinessStartTime;
+
+        function updateResult() {
+            const mood = moodSelect.value;
+            const sleepiness = sleepySelect.value;
+
+            selectedMood.textContent = mood;
+            selectedSleepiness.textContent = sleepiness;
+
+            // Update start times when values change
+            if (mood === 'happy' || mood === 'sad' || mood === 'angry' || mood === 'calm') {
+                moodStartTime = new Date();
+            }
+            if (sleepiness === 'awake' || sleepiness === 'tired' || sleepiness === 'exhausted') {
+                sleepinessStartTime = new Date();
+            }
+        }
+
+        moodSelect.addEventListener('change', updateResult);
+        sleepySelect.addEventListener('change', updateResult);
+
+        // Function to calculate and display the duration
+        function calculateDuration() {
+            if (moodStartTime && sleepinessStartTime) {
+                const currentTime = new Date();
+                const moodDuration = (currentTime - moodStartTime) / 1000; // in seconds
+                const sleepinessDuration = (currentTime - sleepinessStartTime) / 1000; // in seconds
+
+                alert(`Mood duration: ${moodDuration} seconds\nSleepiness duration: ${sleepinessDuration} seconds`);
+            }
+        }
+
+        // Event listener for the "Calculate Duration" button
+        const calculateButton = document.getElementById('calculateButton');
+        calculateButton.addEventListener('click', calculateDuration);
+    </script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Activity Tracker</title>
+</head>
+<body>
+    <h1>Add Activity</h1>
+    <form method="post" action="/form">
+        <label for="selected_activity">Select Activity:</label>
+        <select name="selected_activity">
+            <option value="Running">Running</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Jogging">Jogging</option>
+            <option value="Walking">Walking</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Weightlifting">Weightlifting</option>
+        </select><br>
+
+        <label for="duration">Duration (minutes):</label>
+        <input type="text" name="duration"><br>
+
+        <label for= "intensity">Intensity (1-10):</label>
+        <input type="text" name="intensity"><br>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="text" name="weight"><br>
+
+        <input type="submit" value="calculate">
+    </form>
+</body>
+</html>

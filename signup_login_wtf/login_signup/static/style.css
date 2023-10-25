@@ -1,0 +1,103 @@
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #3b0075, #5e0661);
+}
+
+.login-container, .signup-container {
+    width: 400px;
+    padding: 20px;
+    background-color: #FFFFFF; 
+    border: 2px solid #09062e; 
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(201, 190, 190, 0.2);
+    
+    animation-name: fade-in;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0; 
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1; 
+    }
+}
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #330757;
+    font-weight:bolder;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #5e0661; 
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+input[type="submit"] {
+    width: 98%;
+    padding: 10px;
+    background-color: #0035a8; 
+    border: none;
+    border-radius: 15px;
+    color: #FFFFFF; /* White text */
+    font-weight: bolder;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: medium;
+
+}
+
+input[type="submit"]:hover {
+    background-color: #8c0085; 
+}
+
+a {
+    text-decoration: none;
+    margin-left: 20px;
+    color:#5e0661;;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.login-container a {
+    margin-top: 10px;
+}
+p{
+    font-weight: 550;
+}
+
+
+/* Styles for the "Forgot Password" link */
+.forgot-password {
+    color:#5e0661;
+    margin-top: 10px;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

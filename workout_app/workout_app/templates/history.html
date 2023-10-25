@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Workout History</h1>
+    <table>
+        <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Duration (minutes)</th>
+            <th>Date</th>
+        </tr>
+        {% for workout in workouts %}
+            <tr>
+                <td>{{ workout.exercise }}</td>
+                <td>{{ workout.sets }}</td>
+                <td>{{ workout.reps }}</td>
+                <td>{{ workout.duration }}</td>
+                <td>{{ workout.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

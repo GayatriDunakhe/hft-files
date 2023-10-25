@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health and Fitness Tracker</title>
+    <!-- Add Bootstrap CSS link here -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Add custom CSS styles here */
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css" rel="stylesheet">
+    
+    
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Health & Fitness Tracker</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Workouts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Profile</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Workout Program Selection -->
+    <div class="container mt-4">
+        <h2>Select a Workout Program</h2>
+        <div class="form-group">
+            <label for="workoutProgram">Choose a Program:</label>
+            <select class="form-control" id="workoutProgram">
+                <option value="program1">Program 1</option>
+                <option value="program2">Program 2</option>
+                <option value="program3">Program 3</option>
+                <option value="program4">Program 4</option>
+            </select>
+        </div>
+    </div>
+    
+
+    <!-- Exercise Library -->
+    <div class="container mt-4">
+        <h2>Exercise Library</h2>
+        <ul class="list-group">
+            <!-- Exercise 1 -->
+            <li class="list-group-item">
+                <h4>Exercise 1: Push-up</h4>
+                <p>Description: The push-up is a basic upper-body exercise...</p>
+            </li>
+    
+            <!-- Exercise 2 -->
+            <li class="list-group-item">
+                <h4>Exercise 2: Squat</h4>
+                <p>Description: The squat is a fundamental lower-body exercise...</p>
+            </li>
+    
+            <!-- Exercise 3 -->
+            <li class="list-group-item">
+                <h4>Exercise 3: Plank</h4>
+                <p>Description: The plank is a core-strengthening exercise...</p>
+            </li>
+    
+            <!-- Add more exercises as needed -->
+        </ul>
+    </div>
+    
+    <!-- Workout Logging -->
+    <div class="container mt-4">
+        <h2>Log Your Workout</h2>
+        <form>
+            <div class="form-group">
+                <label for="exercise">Exercise:</label>
+                <input type="text" class="form-control" id="exercise" placeholder="Exercise Name" required>
+            </div>
+            <div class="form-group">
+                <label for="sets">Sets:</label>
+                <input type="number" class="form-control" id="sets" placeholder="Number of Sets" required>
+            </div>
+            <div class="form-group">
+                <label for="reps">Reps:</label>
+                <input type="number" class="form-control" id="reps" placeholder="Number of Reps" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (lbs):</label>
+                <input type="number" class="form-control" id="weight" placeholder="Weight Lifted (lbs)">
+            </div>
+            <div class="form-group">
+                <label for="notes">Notes:</label>
+                <textarea class="form-control" id="notes" placeholder="Additional Notes"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Log Workout</button>
+        </form>
+    </div>
+    
+
+    <!-- Workout Calendar -->
+    <div class="container mt-4">
+        <h2>Workout Calendar</h2>
+        <div id="calendar"></div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth', // Default view
+                events: [
+                    // You can add workout events here
+                    {
+                        title: 'Cardio Workout',
+                        start: '2023-10-01'
+                    },
+                    {
+                        title: 'Strength Training',
+                        start: '2023-10-10',
+                        end: '2023-10-12'
+                    }
+                    // Add more workout events as needed
+                ]
+            });
+            calendar.render();
+        });
+    </script>
+    
+
+    <!-- Progress Tracking -->
+    <div class="container mt-4">
+        <h2>Progress Tracking</h2>
+        <canvas id="progressChart"></canvas>
+    </div>
+    
+
+    <!-- Footer -->
+    <footer class="text-center mt-5">
+        <p>&copy; 2023 Health & Fitness Tracker</p>
+    </footer>
+
+    <!-- Add Bootstrap JS and jQuery scripts here -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0"></script>
+
+    <!-- Add custom JavaScript for functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var ctx = document.getElementById('progressChart').getContext('2d');
+            var progressChart = new Chart(ctx, {
+                type: 'line', // You can choose different chart types (line, bar, pie, etc.)
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Weight Loss',
+                        data: [150, 148, 146, 145], // Replace with actual data
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        fill: false
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

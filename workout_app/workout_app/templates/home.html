@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Log Your Workout</h1>
+    <form method="POST">
+        <label for="exercise">Exercise:</label>
+        <input type="text" name="exercise" id="exercise" required>
+        <label for="sets">Sets:</label>
+        <input type="number" name="sets" id="sets" required>
+        <label for="reps">Reps:</label>
+        <input type="number" name="reps" id="reps" required>
+        <label for="duration">Duration (in minutes):</label>
+        <input type="number" name="duration" id="duration" required>
+        <button type="submit">Log Workout</button>
+    </form>
+{% endblock %}

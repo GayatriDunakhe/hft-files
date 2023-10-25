@@ -1,0 +1,17 @@
+.notification {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    font-size: 16px;
+    font-family: sans-serif;
+    }
+    
+    .notification h1 {
+    font-size: 20px;
+    margin-bottom: 5px;
+    }
+    
+    .notification p {
+    font-size: 14px;
+    }
